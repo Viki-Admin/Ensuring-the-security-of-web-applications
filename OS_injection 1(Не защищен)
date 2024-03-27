@@ -1,0 +1,18 @@
+<?
+$ip =$_SERVER['REMOTE_ADDR'];
+
+$while_id= ['127.0.0.1'];
+
+echo "Ваш ip ".$ip."<br>";
+
+if (!in_array($ip, $while_id)) {
+
+    header("HTTP/1.1 403 Forbidden");
+    die("Доступ запрещен");
+}
+
+
+echo "Доступ разрешен";
+
+
+?>
