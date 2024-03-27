@@ -1,0 +1,19 @@
+<form method="POST">
+    <input type="text" name="user_input" placeholder="Введите запрос ">
+    <input type="submit" name="sub_request" value="Далее">
+</form>
+
+<?php
+if (isset($_POST['user_input'])) {
+    
+    $unsafe_input = $_POST['user_input']; // предположим, что это пользовательский ввод
+    
+    // Обработка пользовательского ввода для безопасного использования в командной строке
+    $safe_input = escapeshellcmd($unsafe_input);
+    
+    // Использование безопасной переменной при выполнении команды
+    // $output = shell_exec("VER " . $unsafe_input);
+    $output = shell_exec("VER " . $safe_input);
+    echo $output;
+}
+?>
