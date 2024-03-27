@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XSS Vulnerable App</title>
+</head>
+<body>
+  <h1>Welcome to our website</h1>
+  
+  <script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var name = urlParams.get('name');
+    document.write('<h2>Hello, ' + name + '</h2>');
+  </script>
+</body>
+</html>
